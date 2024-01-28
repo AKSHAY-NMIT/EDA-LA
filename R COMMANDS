@@ -1,0 +1,106 @@
+
+Certainly! Here are 100 R commands/functions along with their applications in one paragraph:
+
+Loading Required Libraries: install.packages("tidyverse") and library(tidyverse) to install and load necessary libraries.
+Loading the Dataset: df <- read.csv("your_dataset.csv") to read the dataset into a dataframe.
+Viewing the Dataset: head(df) to view the first few rows of the dataset.
+Summary Statistics: summary(df) to display summary statistics of numerical columns.
+Data Structure: str(df) to show the structure of the dataset.
+Filtering Data: filtered_data <- df[df$BORO == "CITYWIDE", ] to filter data based on a condition.
+Grouping and Summarizing Data: grouped_data <- df %>% group_by(BORO) %>% summarise(mean_SEQ_NUMBER = mean(SEQ_NUMBER, na.rm = TRUE)) to group by BORO and calculate mean SEQ_NUMBER.
+Sorting Data: sorted_data <- df[order(df$PUB_DATE), ] to sort data by PUB_DATE in ascending order.
+Creating a New Variable: df$Task_Duration <- as.Date(df$TASK_END_DATE) - as.Date(df$TASK_START_DATE) to create a new variable 'Task_Duration'.
+Handling Missing Values: missing_values <- colSums(is.na(df)) to check for missing values.
+Data Transformation - Changing Date Format: df$TASK_START_DATE <- as.Date(df$TASK_START_DATE, format="%b %Y") to convert date columns to Date format.
+Merging Dataframes: merged_data <- merge(df, df2, by = "PROJECT_ID") to merge dataframes based on PROJECT_ID.
+Reshaping Data - Pivot Table: pivot_table <- df %>% pivot_wider(names_from = BORO, values_from = SEQ_NUMBER) to create a pivot table.
+Correlation Analysis: correlation_matrix <- cor(df[, c("SEQ_NUMBER", "PUB_DATE")]) to calculate the correlation matrix.
+Histogram: hist(df$SEQ_NUMBER, main = "Histogram of SEQ_NUMBER", xlab = "SEQ_NUMBER") to plot a histogram of SEQ_NUMBER.
+Boxplot: boxplot(df$SEQ_NUMBER ~ df$BORO, main = "Boxplot of SEQ_NUMBER by BORO", xlab = "BORO", ylab = "SEQ_NUMBER") to create a boxplot by BORO.
+Scatter Plot: plot(df$PUB_DATE, df$SEQ_NUMBER, main = "Scatter Plot", xlab = "PUB_DATE", ylab = "SEQ_NUMBER") for a scatter plot of PUB_DATE against SEQ_NUMBER.
+Subset Selection: selected_data <- df[, c("PUB_DATE", "BORO", "SEQ_NUMBER")] to select specific columns.
+Data Sampling: sampled_data <- df[sample(nrow(df), 0.1 * nrow(df)), ] to randomly sample 10% of the data.
+ANOVA: anova_result <- aov(SEQ_NUMBER ~ BORO, data = df) for one-way ANOVA.
+Linear Regression: linear_model <- lm(SEQ_NUMBER ~ PUB_DATE, data = df) for simple linear regression.
+Cross-Tabulation: cross_tab <- table(df$BORO, df$MANAGING_AGCY) for cross-tabulation of BORO and MANAGING_AGCY.
+Data Aggregation: aggregated_data <- aggregate(SEQ_NUMBER ~ BORO, data = df, FUN = sum) to aggregate data by BORO and calculate the sum of SEQ_NUMBER.
+Frequency Table: freq_table <- table(df$BORO) to create a frequency table for BORO.
+Data Normalization: Min-max normalization can be done using appropriate scaling functions.
+Bar Plot: barplot(table(df$MANAGING_AGCY_CD), main = "Bar Plot of MANAGING_AGCY_CD") to create a bar plot of MANAGING_AGCY_CD.
+Data Sampling with Seed: set.seed(123); sampled_data_seed <- df[sample(nrow(df), 0.1 * nrow(df)), ] to sample data with a specified seed for reproducibility.
+Cross-Validation: cv_results <- cv.glm(df, glm(SEQ_NUMBER ~ PUB_DATE, data = df), K = 10) for 10-fold cross-validation in a linear regression model.
+Principal Component Analysis (PCA): pca_result <- prcomp(df[, c("SEQ_NUMBER", "PUB_DATE")], scale = TRUE) for PCA on selected columns with scaling.
+Subset with Logical Conditions: subset_data <- df[df$SEQ_NUMBER > 100, ] to subset data based on a logical condition.
+Data Imputation: df$SEQ_NUMBER[is.na(df$SEQ_NUMBER)] <- mean(df$SEQ_NUMBER, na.rm = TRUE) to impute missing values with the mean.
+K-Means Clustering: kmeans_result <- kmeans(df[, c("SEQ_NUMBER", "PUB_DATE")], centers = 3) for k-means clustering with 3 clusters.
+ANOVA Post Hoc Test: posthoc_test <- TukeyHSD(anova_result) for Tukey's post hoc test after ANOVA.
+Time Series Plot: time_series_plot <- ts.plot(df$PUB_DATE, df$SEQ_NUMBER) for a time series plot.
+Data Subsetting by Date Range: subset_date_range <- df[df$PUB_DATE >= "20220101" & df$PUB_DATE <= "20221231", ] to subset data within a specific date range.
+Data Resampling: resampled_data <- aggregate(SEQ_NUMBER ~ BORO, data = df, FUN = mean) to resample data by taking the mean within each group.
+Pie Chart: pie(table(df$BORO), main = "Pie Chart of BORO") to create a pie chart for the distribution of BORO.
+Bar Plot with ggplot2: ggplot(df, aes(x = MANAGING_AGCY_CD, fill = BORO)) + geom_bar(stat = "count", position = "dodge") for a bar plot using ggplot2.
+Data Normalization (z-score): df$SEQ_NUMBER <- scale(df$SEQ_NUMBER) for z-score normalization of the SEQ_NUMBER variable.
+ANOVA with Interaction: anova_interaction <- aov(SEQ_NUMBER ~ BORO * MANAGING_AGCY, data = df) for ANOVA with interaction effects.
+Interactive Plot with Plotly: plot_ly(df, x = ~PUB_DATE, y = ~SEQ_NUMBER, type = "scatter", mode = "lines") for an interactive plot using Plotly.
+Data Aggregation with dplyr: aggregated_data_dplyr <- df %>% group_by(BORO) %>% summarise(total_SEQ_NUMBER = sum(SEQ_NUMBER, na.rm = TRUE)) for data aggregation using dplyr.
+Survival Analysis: survival_model <- survfit(Surv(SEQ_NUMBER) ~ 1, data = df) for a basic survival analysis.
+Heatmap: heatmap(cor(df[, c("SEQ_NUMBER", "PUB_DATE")]), main = "Heatmap of Correlation Matrix") for a heatmap of the correlation matrix.
+Interactive Data Table: DT::datatable(df, options = list(pageLength = 10)) for an interactive data table using the DT package.
+ANOVA with Repeated Measures: anova_rm <- aov(SEQ_NUMBER ~ Task * BORO + Error(PROJECT_ID/BORO), data = df) for ANOVA with repeated measures.
+Word Cloud: wordcloud(words = df$PROJECT_DESCR, min.freq = 10) for a word cloud based on PROJECT_DESCR.
+Time Series Decomposition: decomposed_series <- decompose(ts(df$SEQ_NUMBER, frequency = 12)) for time series decomposition.
+Data Splitting: split_data <- split(df, df$BORO) to split data into a list based on BORO.
+Interactive 3D Scatter Plot: scatterplot3d(df$PUB_DATE, df$SEQ_NUMBER, df$MANAGING_AGCY_CD, color = df$BORO) for an interactive 3D scatter plot using scatterplot3d.
+Histogram with Density Plot: hist_density_plot <- ggplot(df, aes(x = SEQ_NUMBER)) + geom_histogram(aes(y = ..density..), binwidth = 10, color = "black", fill = "white") + geom_density(alpha = 0.2, fill = "#FF6666") for a histogram with a density plot using ggplot2.
+Random Forest: random_forest_model <- randomForest(SEQ_NUMBER ~ PUB_DATE + BORO, data = df) for building a random forest model.
+Data Merging: merged_data <- merge(df1, df2, by = "PUB_DATE") to merge two data frames based on the PUB_DATE column.
+Lollipop Chart: lollipop_chart <- ggplot(df, aes(x = MANAGING_AGCY_CD, y = SEQ_NUMBER)) + geom_segment(aes(xend = MANAGING_AGCY_CD, yend = 0), color = "skyblue") + geom_point(color = "red", size = 3) for a lollipop chart using ggplot2.
+Correlation Test: cor_test_result <- cor.test(df$SEQ_NUMBER, df$PUB_DATE) for testing the correlation between SEQ_NUMBER and PUB_DATE.
+Data Reshaping (Pivot): pivoted_data <- tidyr::pivot_wider(df, names_from = MANAGING_AGCY_CD, values_from = SEQ_NUMBER) for reshaping data into a wider format.
+Radar Chart: radar_chart <- ggplot(df, aes(x = MANAGING_AGCY_CD, y = SEQ_NUMBER, group = BORO)) + geom_polygon(aes(fill = BORO), color = "black", alpha = 0.6) for a radar chart using ggplot2.
+Confusion Matrix: conf_matrix <- confusionMatrix(predicted_labels, true_labels) for calculating a confusion matrix in a classification task.
+Multinomial Logistic Regression: multinom_model <- nnet::multinom(BORO ~ SEQ_NUMBER + PUB_DATE, data = df) for fitting a multinomial logistic regression model.
+Data Melting: melted_data <- reshape2::melt(df, id.vars = c("PUB_DATE", "BORO"), measure.vars = c("SEQ_NUMBER", "TASK_START_DATE")) for melting data into a long format.
+Interactive Leaflet Map: leaflet_map <- leaflet(df) %>% addTiles() %>% addMarkers(lng = ~PUB_DATE, lat = ~SEQ_NUMBER, popup = ~BORO) for an interactive leaflet map.
+Time Series Forecasting (ARIMA): arima_model <- forecast::auto.arima(ts(df$SEQ_NUMBER), stepwise = FALSE) for automatic ARIMA time series forecasting.
+Choropleth Map: choropleth_map <- ggplot(df, aes(fill = SEQ_NUMBER, map_id = BORO)) + geom_map(map = map_data("state"), color = "white") + scale_fill_gradient(low = "lightblue", high = "darkblue") for creating a choropleth map using ggplot2.
+Data Normalization (Min-Max): df$SEQ_NUMBER <- scales::rescale(df$SEQ_NUMBER) for Min-Max normalization of the SEQ_NUMBER variable.
+Hierarchical Clustering: hierarchical_cluster <- hclust(dist(df[, c("SEQ_NUMBER", "PUB_DATE")])) for hierarchical clustering based on Euclidean distance.
+Interactive Network Plot: network_plot <- igraph::plot(igraph::graph_from_data_frame(df, directed = TRUE), layout = layout_with_fr) for an interactive network plot using igraph.
+ROC Curve: roc_curve <- roc(true_labels, predicted_probabilities) for plotting an ROC curve in a binary classification problem.
+Time Series Cross-Validation: ts_cv <- tscv(ts(df$SEQ_NUMBER), horizon = "rolling", initial = 50, assess = 20) for time series cross-validation.
+Data Filtering (dplyr): filtered_data <- df %>% filter(SEQ_NUMBER > 50, BORO == "CITYWIDE") for data filtering using dplyr.
+Logistic Regression: logistic_regression_model <- glm(factor(SEQ_NUMBER > 100) ~ PUB_DATE + BORO, data = df, family = "binomial") for logistic regression modeling.
+Data Sampling (Stratified): stratified_sample <- df %>% group_by(BORO) %>% slice_sample(n = 10) for stratified sampling of data.
+Ternary Plot: ternary_plot <- ggtern::ggtern(data = df, aes(x = PUB_DATE, y = BORO, z = SEQ_NUMBER)) + geom_point() for a ternary plot using ggtern.
+Data Transposition: transposed_data <- t(df[, c("SEQ_NUMBER", "PUB_DATE")]) for transposing data.
+Neural Network: neural_network_model <- neuralnet(SEQ_NUMBER ~ PUB_DATE + BORO, data = df, linear.output = TRUE) for building a neural network model.
+Interactive 3D Surface Plot: plot_ly(df, x = ~PUB_DATE, y = ~BORO, z = ~SEQ_NUMBER, type = "surface") for an interactive 3D surface plot using Plotly.
+Data Imputation (Missing Values): imputed_data <- mice::mice(df, method = "pmm", m = 5) for imputing missing values using predictive mean matching with multiple imputations.
+K-Means Clustering: kmeans_clusters <- kmeans(df[, c("SEQ_NUMBER", "PUB_DATE")], centers = 3) for performing k-means clustering with 3 clusters.
+Data Sampling (Random): random_sample <- df %>% sample_n(size = 100) for random sampling of 100 rows from the dataframe.
+Stacked Area Chart: stacked_area_chart <- ggplot(df, aes(x = PUB_DATE, y = SEQ_NUMBER, fill = BORO)) + geom_area() for creating a stacked area chart using ggplot2.
+Word Cloud: wordcloud(df$TASK_DESCRIPTION, scale = c(3, 0.5), max.words = 100, colors = brewer.pal(8, "Dark2")) for generating a word cloud from the TASK_DESCRIPTION column.
+Quantile-Quantile Plot: qq_plot <- ggplot(df, aes(sample = SEQ_NUMBER)) + stat_qq() for creating a quantile-quantile plot to check for normality.
+Data Sampling (Systematic): systematic_sample <- df %>% slice_sample(n = 100, method = "systematic") for systematic sampling of 100 rows from the dataframe.
+Decision Tree: decision_tree_model <- rpart(SEQ_NUMBER ~ PUB_DATE + BORO, data = df) for building a decision tree model.
+Data Sampling (Cluster): cluster_sample <- df %>% group_by(BORO) %>% slice_sample(n = 10) for cluster-based sampling of 10 rows from each group in the dataframe.
+Survival Analysis: survival_model <- survival::survfit(Surv(PUB_DATE, event = event_status) ~ 1, data = df) for fitting a survival analysis model.
+Data Splitting (Train-Test): set.seed(123); train_indices <- createDataPartition(df$SEQ_NUMBER, p = 0.8, list = FALSE); train_data <- df[train_indices, ]; test_data <- df[-train_indices, ] for splitting data into training and testing sets.
+Heatmap: heatmap_plot <- ggplot(df, aes(x = MANAGING_AGCY_CD, y = SEQ_NUMBER, fill = SEQ_NUMBER)) + geom_tile() for creating a heatmap using ggplot2.
+Data Sampling (SMOTE): smote_sampled_data <- DMwR::SMOTE(SEQ_NUMBER ~ PUB_DATE + BORO, data = df) for oversampling using Synthetic Minority Over-sampling Technique (SMOTE).
+Principal Component Analysis (PCA): pca_result <- prcomp(df[, c("SEQ_NUMBER", "PUB_DATE")], scale. = TRUE) for performing principal component analysis.
+Data Sampling (Undersampling): undersampled_data <- ovun.sample(SEQ_NUMBER ~ ., data = df, method = "under", N = 100) for undersampling the majority class to balance the dataset.
+Line Plot with Error Bars: line_plot_with_error_bars <- ggplot(df, aes(x = PUB_DATE, y = SEQ_NUMBER, group = BORO, color = BORO)) + geom_line() + geom_errorbar(aes(ymin = SEQ_NUMBER - sd(SEQ_NUMBER), ymax = SEQ_NUMBER + sd(SEQ_NUMBER)), width = 0.1) for a line plot with error bars using ggplot2.
+Data Sampling (SMOTEENN): smoteenn_sampled_data <- DMwR::SMOTEENN(SEQ_NUMBER ~ PUB_DATE + BORO, data = df) for combined oversampling and undersampling using SMOTE and Edited Nearest Neighbors (SMOTEENN).
+ANOVA Test: anova_result <- aov(SEQ_NUMBER ~ BORO, data = df) for performing analysis of variance (ANOVA) to compare means across different groups.
+Data Sampling (SMOTETomek): smotetomek_sampled_data <- DMwR::SMOTETomek(SEQ_NUMBER ~ PUB_DATE + BORO, data = df) for combined oversampling and undersampling using SMOTE and Tomek links (SMOTETomek).
+Ridge Regression: ridge_model <- glmnet::cv.glmnet(as.matrix(df[, c("SEQ_NUMBER", "PUB_DATE")]), df$BORO, alpha = 0) for fitting a ridge regression model.
+Data Sampling (Random Stratified): random_stratified_sample <- df %>% group_by(BORO) %>% sample_n(size = 10) for random stratified sampling of 10 rows from each group in the dataframe.
+Paired T-Test: paired_ttest_result <- t.test(df$SEQ_NUMBER ~ df$BORO, paired = TRUE) for conducting a paired t-test.
+Data Sampling (NearMiss): nearmiss_sampled_data <- DMwR::nearMiss(SEQ_NUMBER ~ PUB_DATE + BORO, data = df) for undersampling using the NearMiss algorithm.
+Multivariate Analysis of Variance (MANOVA): manova_result <- manova(cbind(SEQ_NUMBER, PUB_DATE) ~ BORO, data = df) for performing multivariate analysis of variance.
+Data Sampling (Edited Nearest Neighbors): enn_sampled_data <- DMwR::enn(SEQ_NUMBER ~ PUB_DATE + BORO, data = df) for undersampling using the Edited Nearest Neighbors algorithm.
+
+
+
