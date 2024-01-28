@@ -1,5 +1,5 @@
 
-Certainly! Here are 100 R commands/functions along with their applications in one paragraph:
+Certainly! Here are 100 R commands/functions used in used EDA LA report along with its use and demonstration 
 
 Loading Required Libraries: install.packages("tidyverse") and library(tidyverse) to install and load necessary libraries.
 Loading the Dataset: df <- read.csv("your_dataset.csv") to read the dataset into a dataframe.
