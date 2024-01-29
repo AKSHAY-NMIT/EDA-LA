@@ -1,0 +1,49 @@
+help()-Brings up a help entry for the specified command help.start()-Opens the help system in the browser
+apropos()-shows all the commands that contain the “partword” install.packages(“pkg”)-Installs a library of commands from the CRAN website install.packages()-Shows a list of packages that are installed.
+library(pkg)-Loads a package of commands,making them available for use search()-Shows a list of packages that are available and loaded for use example()-View some examples on the use of a command
+ls()-Lists memory of contents
+
+ls.str(pattern=‘data’)-This lists all the objects with “data” in their name and shows you the structure of each. ls(pattern=‘b’)-Here the pattern looks for everything containing a “b”
+ls(pattern=“^be”)-If you want to search for objects beginning with a certain letter you use the ^ character
+
+ls(pattern=‘1’)-letters are enclosed in square brackets the square brackets is to isolate the letters; each is treated as a separate item, hence objects beginning with “b” or “e” are matched
+ls(pattern=‘m$’)-To find objects ending with a specific character you use a dollar sign at the end ls(pattern=‘a.e’)-You can use the period as a wildcard and R will match any character
+class()-You can obtain information about the type of object
+
+sort()-The sort() function is used to sort the elements of a vector or a data frame in ascending order. It returns a new vector or data frame with the elements arranged in ascending order.
+rank()-The rank() function computes the ranks of the elements in a vector. It assigns a unique rank to each element based on its value, where the smallest element receives a rank of 1.
+method(): The method() function is not a built-in R function. The term “method” typically refers to a specific implementation or algorithm for solving a problem in R.
+row.names()-function in R is used to retrieve or set the row names of a matrix or a data frame. history()-You can view the current list of the history items
+savehistory(file=‘.Rhistory’)-You can save the current history to a desk loadhistory(file=‘.Rhistory’)-You can load the file from the history c(),scan()-Enter data manually to a vector in R
+rep()-Make Vector of repeated values seq()-Make arithmetic progression vector
+View()-View dataset in a spreadsheet-type format data()-Load built-in dataset
+dim()-See dimensions(rows/columns)of a dataframe str()-Display internal structure of an R-object
+read.csv(),read.table()-load into data frame an existing datafile require()-Make available an R add-oon package
+names()-List names of variables in a data frame length()-Give length of a vector
+rm()-removes an item from memory
+
+hist()-Command for producing a histogram
+
+histogram()-Lattice command for producing a histogram table()-List all values of a variables with frequencies stem()-Make a stem plot
+xtabs()-Cross tabulation tables using formulas mosaicplot()-Make a mosaicplot
+ 
+cut()-Group values of a variable into larger bins median()-Identify “center” of distrubtion
+mean()-To find the avg of the given data
+
+by()-Apply function to a column split by factors summary()-Display 5-number summary and mean var()-To find the variance of a given values
+sd()-To find the standard variation of the given values in the vector sum()-Add up all vlaues in vector
+quantile()-Find the position of a quantile in a dataset barplot()-Produce a bargraph
+barchart()-Lattice command for producing bar graphs boxplot()-Produce a boxplot
+bwplot()-Lattice command for producing boxplots plot()-To produce a scatter plot
+xyplot()-Lattice command for producing a scatter plot lm()-Determine the least-squares regression line anova()-Analyzing of variance
+predict()-Obtained predicted values from linear model nls()-Estimate the parameters of the nonlinear model residuals()-Gives for a model-fit to data
+sample()-Take a smaple from vector of data replicate()-repeat process a set number of times
+cumsum()-produce running total of values for an input vector ecdf()-Buitls empricial cumulative distribution function dbinom()-Tools for binomial distribution
+dpois()-Tools for poisson distribution pnorm()-Tools for normal distribution qt()-Tools for student t distributtions
+pchisq()-Tools for chi-square test distributions
+
+binom.test()-Hypothesis test and confident interval for one proportion prop.test()-inferencce for one portion using normal approx chisq.tset()-Carries out a chi-square test
+fisher.test()-Fisher test for contigency table
+
+t.test()-Studnet t test for inference on population mean qqnorm(),qqline()-Tools for checking normality addmargins()-Add marginal sums to an existing table prop.table()-Compute proportions from a contigency table par()-query and edit graphical settings
+power.t.test()-power calculations for one and two sample t test
